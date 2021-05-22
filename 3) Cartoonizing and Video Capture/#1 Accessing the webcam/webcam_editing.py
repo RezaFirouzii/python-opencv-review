@@ -1,11 +1,11 @@
 # let's edit our webcam video stream and have some fun!
-# we'll devide each frame to 4 quadratics and rotate
+# we'll devide each frame to 4 quadrants and rotate
 # each part clockwise every one second
 # every part has different look and effects
 
 import cv2 as cv
-from collections import deque
 import numpy as np
+from collections import deque
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -43,7 +43,7 @@ if __name__ == "__main__":
         parts = deque([part1, part2, part3, part4])
         parts.rotate(count // 100)
 
-        # assigning each quadratic based on clockwise rotation
+        # assigning each quadrant based on clockwise rotation
         img[:height // 2, :width // 2] = parts[0]   # top left
         img[:height // 2, width // 2:] = parts[1]   # top right
         img[height // 2:, width // 2:] = parts[2]   # bottom right
