@@ -3,9 +3,9 @@ import cv2 as cv
 if __name__ == "__main__":
     # read and display an image at each 5 seconds
     for i in range(1, 6):
-        img = cv.imread('../assets/test%d.jpg' %i)
+        img = cv.imread('../../assets/test%d.jpg' %i)
         cv.imshow('Tests Preview', img)
-        cv.waitKey(5000)
+        cv.waitKey(3000)
 
 
     cv.destroyAllWindows()

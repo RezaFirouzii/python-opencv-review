@@ -3,7 +3,7 @@ import cv2 as cv
 
 if __name__ == "__main__":
     
-    img = cv.imread('../assets/test1.jpg')
+    img = cv.imread('../../assets/test1.jpg')
     cv.imshow("Original Image", img)
 
     # resizing the img to (500 pixels, 500 pixels)

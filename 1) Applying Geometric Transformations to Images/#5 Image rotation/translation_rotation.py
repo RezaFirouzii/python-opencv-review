@@ -7,7 +7,7 @@ import math
 
 if __name__ == "__main__":
     
-    img = cv.imread("../assets/test4.jpg")
+    img = cv.imread("../../assets/test4.jpg")
     img = cv.resize(img, None, fx=.5, fy=.5)    # ignore this line as we'll get through it next part
     height, width = img.shape[:2]
 

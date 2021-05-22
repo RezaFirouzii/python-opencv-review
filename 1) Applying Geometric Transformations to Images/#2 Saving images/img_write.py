@@ -2,7 +2,7 @@ import cv2 as cv
 
 if __name__ == "__main__":
     
-    img = cv.imread('../assets/test1.jpg')
+    img = cv.imread('../../assets/test1.jpg')
 
     # save
     cv.imwrite('test1_copy.jpg', img)
