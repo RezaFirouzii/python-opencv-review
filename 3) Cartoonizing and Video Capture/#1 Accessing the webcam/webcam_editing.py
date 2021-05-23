@@ -34,8 +34,8 @@ if __name__ == "__main__":
         part1 = frame.copy()                            # original
         part2 = cv.Laplacian(frame, cv.CV_64F)          # edge detection filter
 
-        part3 = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
-        part3 = np.stack((part3, ) * 3, axis=-1)        # grayscale effect
+        part3 = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)   # grayscale effect
+        part3 = np.stack((part3, ) * 3, axis=-1)        # converting to 3 channel matrix
         
         part4 = cv.cvtColor(frame, cv.COLOR_BGR2HSV)    # HSV color space
 

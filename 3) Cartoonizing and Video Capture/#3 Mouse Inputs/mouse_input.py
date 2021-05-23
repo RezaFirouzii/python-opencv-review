@@ -17,7 +17,7 @@ def mouse_handler(event, x, y, flags, param):
 
 if __name__ == "__main__":
     
-    img = cv.imread('../../assets/test1.jpg')
+    img = cv.imread('../../assets/test10.jpg')
     img = cv.resize(img, None, fx=.5, fy=.5)
     original_copy = img.copy()  # a copy of img to clear later
 

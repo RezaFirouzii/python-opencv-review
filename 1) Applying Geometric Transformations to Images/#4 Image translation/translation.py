@@ -3,7 +3,7 @@ import numpy as np
 
 if __name__ == "__main__":
     
-    img = cv.imread('../../assets/test2.jpg')
+    img = cv.imread('../../assets/test1.jpg')
     height, width = img.shape[:2]   # rows, columns
 
     # translating the img 200 pixels right (x axis)

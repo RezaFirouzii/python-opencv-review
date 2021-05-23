@@ -4,7 +4,7 @@ import numpy as np
 
 if __name__ == "__main__":
 
-    img = cv.imread("../../assets/test2.jpg")  # fox 
+    img = cv.imread("../../assets/test1.jpg")  # fox 
     rows, cols = img.shape[:2]
 
     cv.imshow("Original Image", img)

@@ -28,8 +28,8 @@ def draw_quarter(q, sample, img):
 
 def draw_image(img):
     global TARGET
-    TESTS_COUNT = 5             # number of sample images
-    tests = np.arange(1, TESTS_COUNT) + 1
+    TESTS_COUNT = 8                     # number of sample images containing face
+    tests = np.arange(TESTS_COUNT) + 1  # first 8 images are faces (look at assets folder)
 
     # image quarters numbers
     # [0 | 1]
@@ -50,8 +50,9 @@ def draw_image(img):
 
 
     # placing the main image with no face
-    TARGET = quarters[0]             # only one spot left
-    draw_quarter(TARGET, 1, img)     # assets folder only has 1 pic without face which is "test1.jpg"
+    TARGET = quarters[0]                    # only one spot left
+    target_pic = np.random.randint(9, 15)   # images 9 to 14 are pictures without face (test9.jpg , ... , test14.jpg)
+    draw_quarter(TARGET, target_pic, img)   # passing a random picture out of 6 pictures which could be the target
 
 
 
@@ -136,3 +137,5 @@ if __name__ == "__main__":
             DETECTED = -1
 
     cv.destroyAllWindows()
+
+# you can customize this project with more images
