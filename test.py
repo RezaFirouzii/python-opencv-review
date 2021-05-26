@@ -2,15 +2,11 @@ import cv2 as cv
 import numpy as np
 
 if __name__ == "__main__":
-    img = cv.imread('assets/test1.jpg')
-    copy = img.copy()
-    img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
-    img = cv.medianBlur(img, 7)
-    img = cv.Laplacian(img, cv.CV_8U, ksize=5)
-    res, img = cv.threshold(img, 100, 250, cv.THRESH_BINARY_INV)
-    cv.imshow('i;, ', img)
-    img = cv.bitwise_and(copy, copy, mask=img)
+    img = cv.imread('assets/test14.jpg')
+    img = cv.resize(img, None, fx=.5, fy=.5)
+    cv.imshow("d", img)
+    mask = cv.inRange(img, (0, 0, 0), (200, 200, 200))
+    img = cv.bitwise_and(img, img, mask=mask)
     cv.imshow('', img)
-    print(img)
     cv.waitKey(0)
     cv.destroyAllWindows()
