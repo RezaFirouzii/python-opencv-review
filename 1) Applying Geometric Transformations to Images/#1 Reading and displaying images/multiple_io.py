@@ -2,7 +2,7 @@ import cv2 as cv
 
 if __name__ == "__main__":
     # read and display an image at each 3 seconds
-    for i in range(1, 15):
+    for i in range(1, 16):
         img = cv.imread('../../assets/test%d.jpg' %i)
         cv.imshow('Tests Preview', img)
         cv.waitKey(3000)

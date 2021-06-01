@@ -51,7 +51,7 @@ def draw_image(img):
 
     # placing the main image with no face
     TARGET = quarters[0]                    # only one spot left
-    target_pic = np.random.randint(9, 15)   # images 9 to 14 are pictures without face (test9.jpg , ... , test14.jpg)
+    target_pic = np.random.randint(9, 16)   # images 9 to 15 are pictures without face (test9.jpg , ... , test15.jpg)
     draw_quarter(TARGET, target_pic, img)   # passing a random picture out of 6 pictures which could be the target
 
 
