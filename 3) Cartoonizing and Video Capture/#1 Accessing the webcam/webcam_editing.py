@@ -14,7 +14,7 @@ BLUE = (0, 128, 255)
 
 
 if __name__ == "__main__":
-    cap = cv.VideoCapture(0)
+    cap = cv.VideoCapture(0, cv.CAP_DSHOW)
 
     if not cap.isOpened():
         raise IOError("Webcam could not be opened!")
@@ -25,7 +25,7 @@ if __name__ == "__main__":
         if not res:
             break
         
-        frame = cv.resize(frame, None, fx=.5, fy=.5)
+        # frame = cv.resize(frame, None, fx=.5, fy=.5)
         height, width = frame.shape[:2]
 
         img = frame.copy()

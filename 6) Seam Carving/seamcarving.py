@@ -167,17 +167,49 @@ def remove_horizontal_seam(img, seam):
 
 
 
+# expanding the width of the image by increasing the columns
+def add_vertical_seam(img, seam):
+    rows, cols = img.shape[:2]
+    
+    # adding a total black column to img (widening)
+    column = np.zeros((rows, 1, 3), dtype=np.uint8) # remember an image is a 3d matrix with 3 chanels
+    expanded_img = np.hstack((img, column))         # adding the column to the end (a black pixel will be added to each row)
+
+    for i in range(rows):
+        for j in range(cols, int(seam[i]), -1):
+            expanded_img[i, j] = expanded_img[i, j - 1]
+
+    return expanded_img
+
+
+# expand img horizontally by increasing the height
+def add_horizontal_seam(img, seam):
+    rows, cols = img.shape[:2]
+
+    # adding a total black column to img
+    row = np.zeros((1, cols, 3), dtype=np.uint8)
+    expanded_img = np.vstack((img, row)) # adding the row to the end (a black pixel will be added to each column)
+
+    for j in range(cols):
+        for i in range(rows, int(seam[j]), -1):
+            expanded_img[i, j] = expanded_img[i - 1, j]
+    
+    return expanded_img
+
+
 
 if __name__ == "__main__":
-    img = cv.imread('../assets/test10.jpg')
+    img = cv.imread('../assets/test1.jpg')
     img = cv.resize(img, None, fx=.5, fy=.5)
     print(img.shape)
+    
     energy_matrix = create_energy_matrix(img)
     seam = find_horizontal_seam(img, energy_matrix)
     img = draw_horizontal_seam(img, seam)
-    img = remove_horizontal_seam(img, seam)
-    cv.imshow("", img)
+    img = add_horizontal_seam(img, seam)
+    
     print(img.shape)
+    cv.imshow("", img)
     cv.waitKey(0)
     cv.destroyAllWindows()
 

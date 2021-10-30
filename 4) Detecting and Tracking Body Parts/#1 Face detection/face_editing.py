@@ -14,13 +14,10 @@ def put_on_sunglasses(img):
         # and the rest of the layer false (black pixels)
         gray_layer = cv.cvtColor(layer, cv.COLOR_BGR2GRAY)
         res, mask = cv.threshold(gray_layer, 230, 255, cv.THRESH_BINARY_INV)
-        mask_inv = cv.bitwise_not(mask)     # mask inverse helps us create a transparent gap for glasses in combination
-        
         new_face = cv.bitwise_and(layer, layer, mask=mask)          # filtering out only sunglasses
-        gap_img = cv.bitwise_and(imgROI, imgROI, mask=mask_inv)     # filtering out everywhere except sunglasses
         
         # combination
-        img[y: y + h, x: x + w] = cv.add(new_face, gap_img)         # combining the new face with the modified img
+        img[y: y + h, x: x + w] = cv.add(imgROI, new_face)          # combining the new face with the modified img
 
     return img
 

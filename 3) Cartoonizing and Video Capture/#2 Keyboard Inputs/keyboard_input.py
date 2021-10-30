@@ -5,7 +5,7 @@ import cv2 as cv
 
 
 if __name__ == "__main__":
-    cap = cv.VideoCapture(0)
+    cap = cv.VideoCapture(0, cv.CAP_DSHOW)
 
     if not cap.isOpened():
         raise IOError("Webcam could not be opened!\nTry a static video instead.")
@@ -29,7 +29,7 @@ if __name__ == "__main__":
         if not res:
             break
 
-        frame = cv.resize(frame, None, fx=.5, fy=.5)
+        # frame = cv.resize(frame, None, fx=.5, fy=.5)
 
         key = cv.waitKey(20)
         if key == 27:

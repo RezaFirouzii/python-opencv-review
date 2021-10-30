@@ -4,7 +4,8 @@ if __name__ == "__main__":
     
     # 0 => first (default) webcam connected,
     # 1 => second webcam and so on.
-    cap = cv.VideoCapture(0)
+    cap = cv.VideoCapture(0, cv.CAP_DSHOW)
+    # cv.namedWindow("Window")
 
     if not cap.isOpened():
         raise IOError("Webcam could not be opened!")

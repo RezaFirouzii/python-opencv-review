@@ -33,7 +33,7 @@ if __name__ == "__main__":
         "bottom_right": (x_init, y_init)
     }
 
-    cap = cv.VideoCapture(0)
+    cap = cv.VideoCapture(0, cv.CAP_DSHOW)
     if not cap.isOpened():
         raise IOError("Webcam/Video could not be opened!")
 
@@ -44,8 +44,6 @@ if __name__ == "__main__":
         res, frame = cap.read()
         if not res:
             break
-
-        frame = cv.resize(frame, None, fx=.5, fy=.5)
 
         (x1, y1), (x2, y2) = event_params["top_left"], event_params["bottom_right"]
         frame[y1: y2, x1: x2] = 255 - frame[y1: y2, x1: x2]

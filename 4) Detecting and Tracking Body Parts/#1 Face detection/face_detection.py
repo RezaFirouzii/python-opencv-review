@@ -5,7 +5,7 @@ RED = (0, 0, 255)
 if __name__ == "__main__":
     face_cascade = cv.CascadeClassifier(cv.data.haarcascades + 'haarcascade_frontalface_alt.xml')
 
-    cap = cv.VideoCapture('../../yellow.mp4')
+    cap = cv.VideoCapture(0, cv.CAP_DSHOW)
     if not cap.isOpened():
         raise IOError("Webcam was not opened!")
 
@@ -14,7 +14,6 @@ if __name__ == "__main__":
         if not res:
             break
 
-        frame = cv.resize(frame, None, fx=.5, fy=.5)
         face_rects = face_cascade.detectMultiScale(frame, scaleFactor=1.3, minNeighbors=3)
         for (x, y, w, h) in face_rects:
             frame = cv.rectangle(frame, (x, y), (x + w, y + h), RED, 3)
